@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Roles & Audit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Role-based access control and security audit log UI (static HTML/CSS)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html" aria-current="page">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="section-header">
+      <h1>Roles & Audit</h1>
+      <p class="muted">Manage roles, permissions, and review audit logs.</p>
+    </header>
+
+    <section class="grid grid-2 mt-md" aria-label="Role management">
+      <!-- Roles -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Roles</h2>
+          <div class="table-scroll">
+            <table class="table">
+              <caption class="sr-only">Roles table</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Role</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Permissions</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Admin</td>
+                  <td>Full system access</td>
+                  <td><span class="tag">manage_users</span> <span class="tag">view_audit</span> <span class="tag">all</span></td>
+                  <td>
+                    <!-- PUBLIC_INTERFACE: Edit/Delete role -->
+                    <button class="btn btn-ghost" type="button">Edit</button>
+                    <button class="btn btn-ghost" type="button">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Manager</td>
+                  <td>Team management & approvals</td>
+                  <td><span class="tag">approve_leave</span> <span class="tag">view_team</span></td>
+                  <td>
+                    <button class="btn btn-ghost" type="button">Edit</button>
+                    <button class="btn btn-ghost" type="button">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Employee</td>
+                  <td>Self service access</td>
+                  <td><span class="tag">request_leave</span> <span class="tag">view_payslip</span></td>
+                  <td>
+                    <button class="btn btn-ghost" type="button">Edit</button>
+                    <button class="btn btn-ghost" type="button">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <form class="form grid grid-2 mt-sm" action="#" method="post" aria-label="Create role form">
+            <div class="form-field">
+              <label for="role-name">Role Name</label>
+              <input id="role-name" name="role-name" placeholder="e.g., Auditor" />
+            </div>
+            <div class="form-field">
+              <label for="role-desc">Description</label>
+              <input id="role-desc" name="role-desc" placeholder="Brief description" />
+            </div>
+            <div class="form-field span-2">
+              <label for="perms">Permissions (comma-separated)</label>
+              <input id="perms" name="perms" placeholder="e.g., view_audit, export_logs" />
+            </div>
+            <div class="form-actions span-2">
+              <button class="btn btn-secondary" type="submit">Create Role</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- User-Role Assignment -->
+      <div class="card">
+        <div class="card-body">
+          <h2>User-Role Assignment</h2>
+          <form class="form grid grid-2" action="#" method="post" aria-label="User role assignment">
+            <div class="form-field">
+              <label for="user-email">User Email</label>
+              <input id="user-email" name="user-email" type="email" placeholder="user@company.com" />
+            </div>
+            <div class="form-field">
+              <label for="role-select">Role</label>
+              <select id="role-select" name="role-select">
+                <option>Employee</option>
+                <option>Manager</option>
+                <option>Admin</option>
+                <option>Auditor</option>
+              </select>
+            </div>
+            <div class="form-actions span-2">
+              <button class="btn btn-secondary" type="submit">Assign Role</button>
+            </div>
+          </form>
+          <div class="table-scroll mt-sm">
+            <table class="table">
+              <caption class="sr-only">User role mapping</caption>
+              <thead>
+                <tr>
+                  <th scope="col">User</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alex Johnson</td>
+                  <td>alex.johnson@example.com</td>
+                  <td>Manager</td>
+                  <td><button class="btn btn-ghost" type="button">Remove</button></td>
+                </tr>
+                <tr>
+                  <td>Emma Liu</td>
+                  <td>emma.liu@example.com</td>
+                  <td>Admin</td>
+                  <td><button class="btn btn-ghost" type="button">Remove</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audit Logs -->
+    <section class="card mt-lg" aria-labelledby="audit-heading">
+      <div class="card-body">
+        <h2 id="audit-heading">Audit Logs</h2>
+        <form class="form form-inline" action="#" method="get" aria-label="Audit filters">
+          <div class="form-field inline">
+            <label for="event">Event</label>
+            <select id="event" name="event">
+              <option>All</option>
+              <option>Login</option>
+              <option>MFA</option>
+              <option>Role Change</option>
+              <option>Document Access</option>
+            </select>
+          </div>
+          <div class="form-field inline">
+            <label for="date-from">From</label>
+            <input id="date-from" name="date-from" type="date" />
+          </div>
+          <div class="form-field inline">
+            <label for="date-to">To</label>
+            <input id="date-to" name="date-to" type="date" />
+          </div>
+          <button class="btn btn-secondary" type="submit">Filter</button>
+          <!-- PUBLIC_INTERFACE: Export logs -->
+          <button class="btn btn-ghost" type="button">Export CSV</button>
+        </form>
+        <div class="table-scroll mt-sm">
+          <table class="table">
+            <caption class="sr-only">Audit entries</caption>
+            <thead>
+              <tr>
+                <th scope="col">Timestamp</th>
+                <th scope="col">User</th>
+                <th scope="col">Action</th>
+                <th scope="col">Detail</th>
+                <th scope="col">IP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025-09-10 10:24</td>
+                <td>emma.liu@example.com</td>
+                <td>Role Change</td>
+                <td>Added role "Auditor" to user alex.johnson@example.com</td>
+                <td>203.0.113.5</td>
+              </tr>
+              <tr>
+                <td>2025-09-10 09:08</td>
+                <td>alex.johnson@example.com</td>
+                <td>Login</td>
+                <td>Successful login via SSO</td>
+                <td>198.51.100.23</td>
+              </tr>
+              <tr>
+                <td>2025-09-09 17:40</td>
+                <td>hr.bot@system</td>
+                <td>Document Access</td>
+                <td>Shared "Security_Policy.pdf" to Managers group</td>
+                <td>127.0.0.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html" aria-current="page">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Employee Management Portal (Static Prototype)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Static UI prototype for an Employee Management Portal - accessible and responsive HTML/CSS only." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Employee Management Portal Home">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+
+      <!-- Top-level Navigation (static links to module pages) -->
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" class="container">
+    <!-- Landing/Dashboard Overview -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to the Employee Management Portal</h1>
+        <p class="lead">
+          A centralized, responsive, and accessible interface for HR operations, employee records, payroll, performance, and internal communication.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="login.html">Get Started</a>
+          <a class="btn btn-ghost" href="dashboard.html">View Dashboard</a>
+        </div>
+      </div>
+      <div class="hero-illustration" role="img" aria-label="Dashboard overview illustration">
+        <!-- Placeholder illustration box -->
+        <div class="placeholder-graphic">Analytics Snapshot</div>
+      </div>
+    </section>
+
+    <!-- Quick Links Cards -->
+    <section aria-labelledby="quick-links-heading" class="grid grid-3 mt-lg">
+      <h2 id="quick-links-heading" class="sr-only">Quick Links</h2>
+
+      <article class="card">
+        <div class="card-media badge badge-blue" aria-hidden="true">Auth</div>
+        <div class="card-body">
+          <h3 class="card-title">Authentication</h3>
+          <p>Secure login with MFA, password management, and SSO-ready UI.</p>
+          <a class="btn btn-secondary" href="login.html">Open Auth</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media badge badge-green" aria-hidden="true">HR</div>
+        <div class="card-body">
+          <h3 class="card-title">Employee Management</h3>
+          <p>Profiles, documents, skills, certifications, and history views.</p>
+          <a class="btn btn-secondary" href="employees.html">Manage Employees</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media badge badge-purple" aria-hidden="true">Ops</div>
+        <div class="card-body">
+          <h3 class="card-title">Leave & Attendance</h3>
+          <p>Leave requests, approval views, balances, and attendance insights.</p>
+          <a class="btn btn-secondary" href="leave-attendance.html">Open Leave</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Info Row -->
+    <section aria-labelledby="compliance-heading" class="info-row mt-lg">
+      <h2 id="compliance-heading" class="sr-only">Compliance and Standards</h2>
+      <div class="info">
+        <h3>Accessibility</h3>
+        <p>WCAG 2.1 AA-oriented markup with semantic HTML, proper labeling, and keyboard navigability.</p>
+      </div>
+      <div class="info">
+        <h3>Performance</h3>
+        <p>Responsive layout optimized for quick rendering and clean CSS architecture.</p>
+      </div>
+      <div class="info">
+        <h3>Security</h3>
+        <p>Static UI placeholders for OAuth 2.0/LDAP, JWT, and MFA flows (to be wired via scripts).</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

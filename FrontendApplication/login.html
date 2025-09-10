@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Authentication (Login & MFA)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Authentication screens for Employee Management Portal (static HTML/CSS)"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Employee Management Portal Home">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html" aria-current="page">Login/MFA</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container auth-layout">
+    <section class="auth-card" aria-labelledby="login-title">
+      <h1 id="login-title">Sign in</h1>
+      <p class="muted">Use your work email and password or Single Sign-On.</p>
+      <!-- PUBLIC_INTERFACE: Login Form (static) -->
+      <!-- Scripts would capture submit, validate, and call backend OAuth/JWT APIs -->
+      <form class="form" action="#" method="post" novalidate aria-describedby="login-hint">
+        <div class="form-field">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" name="email" required autocomplete="username" placeholder="you@company.com" />
+          <div class="field-hint" id="login-hint">Use your corporate email address.</div>
+        </div>
+        <div class="form-field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••" />
+        </div>
+        <div class="form-row between">
+          <div class="form-check">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember">Remember me</label>
+          </div>
+          <a class="link" href="#" aria-describedby="reset-desc">Forgot password?</a>
+          <span id="reset-desc" class="sr-only">Opens password reset flow (to be implemented)</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <div class="divider" role="separator" aria-label="Or continue with"></div>
+        <div class="sso-grid">
+          <button type="button" class="btn btn-ghost" aria-label="Sign in with Google">Continue with Google</button>
+          <button type="button" class="btn btn-ghost" aria-label="Sign in with Microsoft">Continue with Microsoft</button>
+          <button type="button" class="btn btn-ghost" aria-label="Sign in with LDAP/SSO">Continue with SSO</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="auth-card" aria-labelledby="mfa-title">
+      <h2 id="mfa-title">Multi‑Factor Authentication</h2>
+      <p class="muted">Enter your verification code from your authenticator app or email/SMS.</p>
+      <!-- PUBLIC_INTERFACE: MFA Verification Form (static) -->
+      <!-- Scripts would handle code submission, retries, timer, remember device, and backup codes -->
+      <form class="form" action="#" method="post" novalidate>
+        <div class="form-field">
+          <label for="mfa-code">6‑digit code</label>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" id="mfa-code" name="mfa-code" required placeholder="123456" />
+        </div>
+        <div class="form-row between">
+          <div class="form-check">
+            <input type="checkbox" id="remember-device" />
+            <label for="remember-device">Remember this device for 30 days</label>
+          </div>
+          <a class="link" href="#">Use a backup code</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Verify</button>
+        <p class="muted small mt-sm">Didn't receive a code? <a class="link" href="#">Resend</a></p>
+      </form>
+    </section>
+  </main>
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Documents & Messaging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Document management and internal messaging UI (static HTML/CSS)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html" aria-current="page">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="section-header">
+      <h1>Documents & Messaging</h1>
+      <p class="muted">Upload, categorize, and manage documents. Communicate with team members.</p>
+    </header>
+
+    <section class="grid grid-3 mt-md" aria-label="Documents grid">
+      <article class="card">
+        <div class="card-body">
+          <h2>Upload Document</h2>
+          <form class="form" action="#" method="post" aria-label="Document upload">
+            <div class="form-field">
+              <label for="file">Choose File</label>
+              <input type="file" id="file" name="file" />
+            </div>
+            <div class="form-field">
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option>Compliance</option>
+                <option>Onboarding</option>
+                <option>Policy</option>
+                <option>Contract</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="expires">Expiry Date</label>
+              <input type="date" id="expires" name="expires" />
+            </div>
+            <button class="btn btn-primary" type="submit">Upload</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <h2>Document Library</h2>
+          <div class="table-scroll">
+            <table class="table">
+              <caption class="sr-only">Document Library</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Version</th>
+                  <th scope="col">Updated</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Code of Conduct.pdf</td>
+                  <td>Policy</td>
+                  <td>v2</td>
+                  <td>2025-04-01</td>
+                  <td>
+                    <!-- PUBLIC_INTERFACE: Preview/Download/Version history -->
+                    <button class="btn btn-ghost" type="button">Preview</button>
+                    <button class="btn btn-ghost" type="button">Download</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Benefits_Overview.pdf</td>
+                  <td>Onboarding</td>
+                  <td>v5</td>
+                  <td>2025-03-14</td>
+                  <td>
+                    <button class="btn btn-ghost" type="button">Preview</button>
+                    <button class="btn btn-ghost" type="button">Download</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Security_Policy.pdf</td>
+                  <td>Compliance</td>
+                  <td>v3</td>
+                  <td>2025-01-22</td>
+                  <td>
+                    <button class="btn btn-ghost" type="button">Preview</button>
+                    <button class="btn btn-ghost" type="button">Download</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <h2>Notifications</h2>
+          <ul class="timeline" aria-label="Recent notifications">
+            <li>
+              <span class="time">10:24</span>
+              <div class="note">
+                <strong>Document Expiry:</strong> <span>Vendor Contract</span> expiring in 15 days.
+              </div>
+            </li>
+            <li>
+              <span class="time">Yesterday</span>
+              <div class="note">
+                <strong>New Message:</strong> Team meeting agenda shared by HR.
+              </div>
+            </li>
+            <li>
+              <span class="time">2 days ago</span>
+              <div class="note">
+                <strong>Access Update:</strong> Your role updated to "Manager".
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- Messaging Interface -->
+    <section class="card mt-lg" aria-labelledby="msg-heading">
+      <div class="card-body">
+        <h2 id="msg-heading">Messaging</h2>
+        <div class="messaging">
+          <aside class="msg-sidebar" aria-label="Conversations list">
+            <h3>Conversations</h3>
+            <ul class="list selectable">
+              <li class="selected">HR Announcements</li>
+              <li>Engineering Team</li>
+              <li>Managers</li>
+              <li>Payroll Support</li>
+            </ul>
+          </aside>
+          <div class="msg-thread" role="region" aria-label="Messages">
+            <div class="msg-item">
+              <div class="msg-meta">
+                <span class="avatar small">HR</span>
+                <strong>HR Bot</strong>
+                <span class="muted small">Today 09:05</span>
+              </div>
+              <p>Welcome to the new EMP! Please review the updated policies in the Documents section.</p>
+            </div>
+            <div class="msg-item me">
+              <div class="msg-meta">
+                <span class="avatar small">AJ</span>
+                <strong>You</strong>
+                <span class="muted small">Today 09:08</span>
+              </div>
+              <p>Thanks! The interface looks great.</p>
+            </div>
+            <!-- PUBLIC_INTERFACE: Real-time updates via WebSocket -->
+          </div>
+          <form class="msg-input" action="#" method="post" aria-label="Send a message">
+            <label for="message" class="sr-only">Message</label>
+            <input id="message" name="message" placeholder="Type a message..." />
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html" aria-current="page">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

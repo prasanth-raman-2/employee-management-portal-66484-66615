@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Employee Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Employee profiles, CRUD forms, documents, skills, and certifications (static HTML/CSS)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="employees.html" aria-current="page">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="section-header">
+      <h1>Employee Management</h1>
+      <p class="muted">Search, view, and manage employee profiles, skills, and documents.</p>
+    </header>
+
+    <section class="grid grid-3-1 mt-md" aria-label="Employee Directory and Filters">
+      <div class="card span-2">
+        <div class="card-body">
+          <form class="form form-inline" action="#" method="get" aria-label="Employee search and filters">
+            <div class="form-field inline">
+              <label for="q">Search</label>
+              <input id="q" name="q" type="search" placeholder="Name, role, department..." />
+            </div>
+            <div class="form-field inline">
+              <label for="dept">Department</label>
+              <select id="dept" name="dept">
+                <option>All</option>
+                <option>Engineering</option>
+                <option>Sales</option>
+                <option>HR</option>
+                <option>Marketing</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-secondary">Apply</button>
+          </form>
+
+          <div class="table-scroll mt-sm" role="region" aria-label="Employee directory">
+            <table class="table">
+              <caption class="sr-only">Employee Directory</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Employee</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Alex Johnson</strong></td>
+                  <td>Senior Engineer</td>
+                  <td>Engineering</td>
+                  <td>NYC</td>
+                  <td><span class="status success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sara Patel</strong></td>
+                  <td>Marketing Lead</td>
+                  <td>Marketing</td>
+                  <td>Remote</td>
+                  <td><span class="status success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Diego Martinez</strong></td>
+                  <td>Support Specialist</td>
+                  <td>Support</td>
+                  <td>Austin</td>
+                  <td><span class="status warning">On Leave</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Emma Liu</strong></td>
+                  <td>HR Manager</td>
+                  <td>HR</td>
+                  <td>Seattle</td>
+                  <td><span class="status success">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Pagination placeholder -->
+          <nav class="pagination" aria-label="Employee directory pages">
+            <a href="#" aria-current="page" class="current">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#" aria-label="Next page">Next</a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Profile Quick View -->
+      <aside class="card" aria-label="Selected employee quick profile">
+        <div class="card-body">
+          <div class="profile-summary">
+            <div class="avatar" aria-hidden="true">AJ</div>
+            <div>
+              <h2 class="profile-name">Alex Johnson</h2>
+              <p class="muted">Senior Engineer • Engineering • NYC</p>
+            </div>
+          </div>
+          <ul class="list meta mt-sm">
+            <li><strong>Employee ID:</strong> E-000124</li>
+            <li><strong>Email:</strong> alex.johnson@example.com</li>
+            <li><strong>Manager:</strong> Priya Verma</li>
+            <li><strong>Joined:</strong> 2018-05-12</li>
+          </ul>
+          <div class="btn-row">
+            <!-- PUBLIC_INTERFACE: These actions to be wired to forms/dialogs -->
+            <a class="btn btn-secondary" href="#edit-profile">Edit Profile</a>
+            <a class="btn btn-ghost" href="#view-history">View History</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Profile Edit / Create -->
+    <section id="edit-profile" class="card mt-lg" aria-labelledby="profile-form-title">
+      <div class="card-body">
+        <h2 id="profile-form-title">Create / Edit Employee Profile</h2>
+        <form class="form grid grid-2" action="#" method="post" novalidate>
+          <div class="form-field">
+            <label for="first">First Name</label>
+            <input id="first" name="first" required placeholder="Alex" />
+          </div>
+          <div class="form-field">
+            <label for="last">Last Name</label>
+            <input id="last" name="last" required placeholder="Johnson" />
+          </div>
+          <div class="form-field">
+            <label for="email2">Email</label>
+            <input id="email2" type="email" name="email2" required placeholder="alex.johnson@example.com" />
+          </div>
+          <div class="form-field">
+            <label for="role">Role</label>
+            <input id="role" name="role" placeholder="Senior Engineer" />
+          </div>
+          <div class="form-field">
+            <label for="dept2">Department</label>
+            <select id="dept2" name="dept2">
+              <option>Engineering</option>
+              <option>Marketing</option>
+              <option>Support</option>
+              <option>HR</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="loc">Location</label>
+            <input id="loc" name="loc" placeholder="NYC" />
+          </div>
+          <div class="form-field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option>Active</option>
+              <option>On Leave</option>
+              <option>Inactive</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="manager">Manager</label>
+            <input id="manager" name="manager" placeholder="Priya Verma" />
+          </div>
+          <div class="form-actions span-2">
+            <button type="reset" class="btn btn-ghost">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Profile</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Skills and Certifications -->
+    <section class="grid grid-2 mt-lg" aria-label="Skills and certifications">
+      <div class="card">
+        <div class="card-body">
+          <h2>Skills</h2>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">AWS</span>
+            <span class="tag">React</span>
+            <span class="tag">Leadership</span>
+          </div>
+          <form class="form form-inline mt-sm" action="#" method="post">
+            <div class="form-field inline">
+              <label for="skill">Add Skill</label>
+              <input id="skill" name="skill" placeholder="e.g., Kubernetes" />
+            </div>
+            <button class="btn btn-secondary" type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h2>Certifications</h2>
+          <ul class="list">
+            <li>AWS Solutions Architect (Valid until: 2026-04-30)</li>
+            <li>Scrum Master (Valid until: 2025-12-15)</li>
+            <li>Security+ (Valid until: 2027-07-01)</li>
+          </ul>
+          <form class="form grid grid-2 mt-sm" action="#" method="post">
+            <div class="form-field">
+              <label for="cert-name">Certification Name</label>
+              <input id="cert-name" name="cert-name" placeholder="e.g., Azure Administrator" />
+            </div>
+            <div class="form-field">
+              <label for="cert-exp">Valid Until</label>
+              <input id="cert-exp" name="cert-exp" type="date" />
+            </div>
+            <div class="form-actions span-2">
+              <button class="btn btn-secondary" type="submit">Add Certification</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents -->
+    <section class="card mt-lg" aria-labelledby="docs-heading">
+      <div class="card-body">
+        <h2 id="docs-heading">Documents</h2>
+        <div class="table-scroll">
+          <table class="table">
+            <caption class="sr-only">Employee documents</caption>
+            <thead>
+              <tr>
+                <th scope="col">Document</th>
+                <th scope="col">Category</th>
+                <th scope="col">Version</th>
+                <th scope="col">Uploaded</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Resume.pdf</td>
+                <td>Onboarding</td>
+                <td>v3</td>
+                <td>2024-08-10</td>
+                <td>
+                  <!-- PUBLIC_INTERFACE: Download/Preview to be wired -->
+                  <button class="btn btn-ghost" type="button">Preview</button>
+                  <button class="btn btn-ghost" type="button">Download</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Certification_AWS.pdf</td>
+                <td>Certification</td>
+                <td>v1</td>
+                <td>2023-04-21</td>
+                <td>
+                  <button class="btn btn-ghost" type="button">Preview</button>
+                  <button class="btn btn-ghost" type="button">Download</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Upload form placeholder -->
+        <form class="form form-inline mt-sm" action="#" method="post" aria-label="Upload document form">
+          <div class="form-field inline">
+            <label for="doc-file">Upload File</label>
+            <input id="doc-file" name="doc-file" type="file" />
+          </div>
+          <div class="form-field inline">
+            <label for="doc-cat">Category</label>
+            <select id="doc-cat" name="doc-cat">
+              <option>Onboarding</option>
+              <option>Compliance</option>
+              <option>Certification</option>
+              <option>Contract</option>
+            </select>
+          </div>
+          <button class="btn btn-secondary" type="submit">Upload</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Leave & Attendance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Leave application workflow, balances, team calendar, and attendance analytics (static HTML/CSS)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html" aria-current="page">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="section-header">
+      <h1>Leave & Attendance</h1>
+      <p class="muted">Apply for leave, review balances, view team calendar, and analyze attendance.</p>
+    </header>
+
+    <section class="grid grid-2 mt-md" aria-label="Leave application and balances">
+      <!-- Leave Form -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Request Leave</h2>
+          <!-- PUBLIC_INTERFACE: Leave form submission, date pickers, validation -->
+          <form class="form grid grid-2" action="#" method="post" novalidate>
+            <div class="form-field">
+              <label for="leave-type">Leave Type</label>
+              <select id="leave-type" name="leave-type" required>
+                <option>Annual Leave</option>
+                <option>Sick Leave</option>
+                <option>Bereavement</option>
+                <option>Unpaid Leave</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="leave-days">Number of Days</label>
+              <input id="leave-days" name="leave-days" type="number" min="1" max="30" required placeholder="1" />
+            </div>
+            <div class="form-field">
+              <label for="start-date">Start Date</label>
+              <input id="start-date" name="start-date" type="date" required />
+            </div>
+            <div class="form-field">
+              <label for="end-date">End Date</label>
+              <input id="end-date" name="end-date" type="date" required />
+            </div>
+            <div class="form-field span-2">
+              <label for="reason">Reason</label>
+              <textarea id="reason" name="reason" rows="3" placeholder="Optional details..."></textarea>
+            </div>
+            <div class="form-actions span-2">
+              <button class="btn btn-ghost" type="reset">Cancel</button>
+              <button class="btn btn-primary" type="submit">Submit Request</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Balance Summary -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Leave Balances</h2>
+          <ul class="list">
+            <li>Annual Leave: <strong>12</strong> days remaining</li>
+            <li>Sick Leave: <strong>5</strong> days remaining</li>
+            <li>Casual Leave: <strong>7</strong> days remaining</li>
+          </ul>
+          <div class="placeholder-graphic small mt-sm" role="img" aria-label="Leave distribution chart placeholder">
+            Donut Chart
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-2 mt-lg" aria-label="Team calendar and attendance analytics">
+      <!-- Team Calendar Placeholder -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Team Calendar</h2>
+          <div class="calendar">
+            <div class="calendar-header">
+              <div>October 2025</div>
+              <!-- PUBLIC_INTERFACE: Prev/Next month controls -->
+              <div class="btn-row">
+                <button class="btn btn-ghost" type="button" aria-label="Previous month">Prev</button>
+                <button class="btn btn-ghost" type="button" aria-label="Next month">Next</button>
+              </div>
+            </div>
+            <div class="calendar-grid" role="grid" aria-label="Calendar">
+              <div role="row" class="calendar-row calendar-head">
+                <span role="columnheader">Sun</span>
+                <span role="columnheader">Mon</span>
+                <span role="columnheader">Tue</span>
+                <span role="columnheader">Wed</span>
+                <span role="columnheader">Thu</span>
+                <span role="columnheader">Fri</span>
+                <span role="columnheader">Sat</span>
+              </div>
+              <!-- Static weeks with badges -->
+              <div role="row" class="calendar-row">
+                <span role="gridcell"></span>
+                <span role="gridcell" aria-label="1 Oct - Diego on leave"><span class="badge badge-warning">1</span></span>
+                <span role="gridcell">2</span>
+                <span role="gridcell">3</span>
+                <span role="gridcell">4</span>
+                <span role="gridcell">5</span>
+                <span role="gridcell">6</span>
+              </div>
+              <div role="row" class="calendar-row">
+                <span role="gridcell">7</span><span role="gridcell">8</span><span role="gridcell">9</span>
+                <span role="gridcell">10</span><span role="gridcell">11</span><span role="gridcell">12</span><span role="gridcell">13</span>
+              </div>
+              <div role="row" class="calendar-row">
+                <span role="gridcell">14</span><span role="gridcell">15</span><span role="gridcell">16</span>
+                <span role="gridcell">17</span><span role="gridcell">18</span><span role="gridcell">19</span><span role="gridcell">20</span>
+              </div>
+              <div role="row" class="calendar-row">
+                <span role="gridcell">21</span><span role="gridcell">22</span><span role="gridcell">23</span>
+                <span role="gridcell">24</span><span role="gridcell">25</span><span role="gridcell">26</span><span role="gridcell">27</span>
+              </div>
+              <div role="row" class="calendar-row">
+                <span role="gridcell">28</span><span role="gridcell">29</span><span role="gridcell">30</span>
+                <span role="gridcell">31</span><span role="gridcell"></span><span role="gridcell"></span><span role="gridcell"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance Analytics -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Attendance Analytics</h2>
+          <ul class="list">
+            <li>Average Attendance: <strong>96.4%</strong></li>
+            <li>Late Arrivals This Month: <strong>23</strong></li>
+            <li>Early Departures This Month: <strong>12</strong></li>
+            <li>Overtime Hours: <strong>310</strong></li>
+          </ul>
+          <div class="placeholder-graphic small mt-sm" role="img" aria-label="Attendance trend line chart placeholder">
+            Line Chart
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

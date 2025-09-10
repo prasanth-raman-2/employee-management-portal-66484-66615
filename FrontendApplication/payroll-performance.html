@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Payroll & Performance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Payroll management and performance review UI (static HTML/CSS)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html" aria-current="page">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="section-header">
+      <h1>Payroll & Performance</h1>
+      <p class="muted">Salary details, payslips, KPIs, goals, and review workflows.</p>
+    </header>
+
+    <section class="grid grid-2 mt-md" aria-label="Payroll section">
+      <!-- Salary Info -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Salary Summary</h2>
+          <ul class="list meta">
+            <li><strong>Base Salary:</strong> $120,000</li>
+            <li><strong>Allowances:</strong> $12,000</li>
+            <li><strong>Deductions:</strong> $6,200</li>
+            <li><strong>Net (Monthly):</strong> $9,850</li>
+            <li><strong>Payment Cycle:</strong> Monthly</li>
+          </ul>
+          <div class="btn-row">
+            <!-- PUBLIC_INTERFACE: Generate payslip & download -->
+            <button class="btn btn-secondary" type="button">Generate Payslip</button>
+            <button class="btn btn-ghost" type="button">Download Last Payslip</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payslip Preview -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Payslip Preview (Mockup)</h2>
+          <div class="payslip">
+            <div class="payslip-header">
+              <div>
+                <strong>Employee:</strong> Alex Johnson<br />
+                <strong>Period:</strong> Aug 2025
+              </div>
+              <div>
+                <strong>Employee ID:</strong> E-000124<br />
+                <strong>Department:</strong> Engineering
+              </div>
+            </div>
+            <div class="payslip-body">
+              <div class="table-scroll">
+                <table class="table compact">
+                  <thead>
+                    <tr><th>Earnings</th><th>Amount</th><th>Deductions</th><th>Amount</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Base Pay</td><td>$10,000</td><td>Tax</td><td>$2,300</td></tr>
+                    <tr><td>HRA</td><td>$500</td><td>Insurance</td><td>$150</td></tr>
+                    <tr><td>Bonus</td><td>$200</td><td>401k</td><td>$400</td></tr>
+                  </tbody>
+                  <tfoot>
+                    <tr><th>Total</th><th>$10,700</th><th>Total</th><th>$2,850</th></tr>
+                  </tfoot>
+                </table>
+              </div>
+              <div class="payslip-total">
+                <strong>Net Pay:</strong> $7,850
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="grid grid-2 mt-lg" aria-label="Performance section">
+      <!-- KPIs & Goals -->
+      <div class="card">
+        <div class="card-body">
+          <h2>KPIs & Goals</h2>
+          <ul class="list">
+            <li>Deliver Feature X by Q3 — <strong>On Track</strong></li>
+            <li>Reduce incident MTTR by 20% — <strong>At Risk</strong></li>
+            <li>Mentor 2 junior engineers — <strong>On Track</strong></li>
+          </ul>
+          <form class="form grid grid-2 mt-sm" action="#" method="post">
+            <div class="form-field span-2">
+              <label for="goal-text">New Goal</label>
+              <input id="goal-text" name="goal-text" placeholder="e.g., Improve test coverage to 85%" />
+            </div>
+            <div class="form-field">
+              <label for="goal-date">Due Date</label>
+              <input id="goal-date" name="goal-date" type="date" />
+            </div>
+            <div class="form-field">
+              <label for="goal-owner">Owner</label>
+              <input id="goal-owner" name="goal-owner" placeholder="Alex Johnson" />
+            </div>
+            <div class="form-actions span-2">
+              <button class="btn btn-secondary" type="submit">Add Goal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Review Workflow -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Review Cycle</h2>
+          <ol class="steps">
+            <li class="done">Self-Assessment</li>
+            <li class="in-progress">Manager Review</li>
+            <li>Peer Feedback</li>
+            <li>Final Sign-off</li>
+          </ol>
+          <!-- PUBLIC_INTERFACE: Upload evidence, submit reviews, approve -->
+          <div class="btn-row">
+            <button class="btn btn-ghost" type="button">Upload Evidence</button>
+            <button class="btn btn-secondary" type="button">Submit Self-Assessment</button>
+            <button class="btn btn-primary" type="button">Approve Review</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html" aria-current="page">Payroll & Performance</a></li>
+          <li><a href="dashboard.html">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

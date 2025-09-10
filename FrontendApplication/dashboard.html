@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMP - Analytics Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Analytics dashboard with KPI snapshots and chart placeholders (static HTML/CSS)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">EMP</span>
+        <span class="brand-text">Employee Management Portal</span>
+      </a>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="login.html">Login/MFA</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="employees.html">Employees</a></li>
+          <li><a href="leave-attendance.html">Leave & Attendance</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="section-header">
+      <h1>Analytics & Reporting</h1>
+      <p class="muted">KPI snapshots and trend visualizations with placeholders for future charts.</p>
+    </header>
+
+    <!-- KPI Cards -->
+    <section aria-labelledby="kpi-heading" class="grid grid-4">
+      <h2 id="kpi-heading" class="sr-only">Key Performance Indicators</h2>
+      <article class="stat-card">
+        <h3>Total Employees</h3>
+        <p class="stat">1,245</p>
+        <p class="trend up">+2.1% MoM</p>
+      </article>
+      <article class="stat-card">
+        <h3>Active Leave</h3>
+        <p class="stat">82</p>
+        <p class="trend down">-0.5% WoW</p>
+      </article>
+      <article class="stat-card">
+        <h3>Attendance Rate</h3>
+        <p class="stat">96.4%</p>
+        <p class="trend up">+0.8% MoM</p>
+      </article>
+      <article class="stat-card">
+        <h3>Payroll Accuracy</h3>
+        <p class="stat">99.7%</p>
+        <p class="trend up">+0.2% MoM</p>
+      </article>
+    </section>
+
+    <!-- Charts Row -->
+    <section class="grid grid-2 mt-lg" aria-label="Charts">
+      <figure class="chart-card" role="img" aria-label="Attendance Trend line chart placeholder">
+        <figcaption>Attendance Trend (Last 12 months)</figcaption>
+        <div class="placeholder-graphic">Line Chart</div>
+      </figure>
+      <figure class="chart-card" role="img" aria-label="Department Distribution bar chart placeholder">
+        <figcaption>Department Distribution</figcaption>
+        <div class="placeholder-graphic">Bar Chart</div>
+      </figure>
+    </section>
+
+    <!-- Report Builder Placeholder -->
+    <section class="mt-lg" aria-labelledby="report-builder-heading">
+      <h2 id="report-builder-heading">Custom Report Builder (Mockup)</h2>
+      <div class="report-builder">
+        <!-- Left: Fields list -->
+        <div class="rb-fields" role="region" aria-label="Available data fields">
+          <h3>Data Fields</h3>
+          <ul>
+            <li><span class="tag">Employee Name</span></li>
+            <li><span class="tag">Department</span></li>
+            <li><span class="tag">Role</span></li>
+            <li><span class="tag">Location</span></li>
+            <li><span class="tag">Attendance %</span></li>
+            <li><span class="tag">Leave Balance</span></li>
+            <li><span class="tag">Salary</span></li>
+            <li><span class="tag">Performance Rating</span></li>
+          </ul>
+        </div>
+        <!-- Right: Canvas -->
+        <div class="rb-canvas" role="region" aria-label="Report canvas area">
+          <h3>Canvas</h3>
+          <!-- Interactivity would enable drag/drop and layout -->
+          <div class="rb-canvas-drop">
+            <div class="rb-widget">
+              <h4>Employee Table</h4>
+              <div class="table-scroll">
+                <table class="table">
+                  <caption class="sr-only">Sample Employee Table</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Employee</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Salary</th>
+                      <th scope="col">Rating</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Alex Johnson</td>
+                      <td>Engineering</td>
+                      <td>NYC</td>
+                      <td>$120,000</td>
+                      <td>4.5</td>
+                    </tr>
+                    <tr>
+                      <td>Sara Patel</td>
+                      <td>Marketing</td>
+                      <td>Remote</td>
+                      <td>$95,000</td>
+                      <td>4.2</td>
+                    </tr>
+                    <tr>
+                      <td>Diego Martinez</td>
+                      <td>Support</td>
+                      <td>Austin</td>
+                      <td>$70,000</td>
+                      <td>3.9</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="rb-widget">
+              <h4>Leave Summary</h4>
+              <div class="placeholder-graphic small">Donut Chart</div>
+            </div>
+          </div>
+          <div class="rb-actions">
+            <!-- PUBLIC_INTERFACE: Export buttons (to be wired via JS) -->
+            <button type="button" class="btn btn-secondary">Export CSV</button>
+            <button type="button" class="btn btn-secondary">Export Excel</button>
+            <button type="button" class="btn btn-secondary">Export PDF</button>
+            <button type="button" class="btn btn-primary">Save Report</button>
+          </div>
+        </div>
+      </div>
+      <p class="muted small mt-sm">Note: Interactivity (drag/drop, export, save) to be wired via JavaScript and backend APIs.</p>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2025</span> Employee Management Portal</p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="roles-audit.html">Roles & Audit</a></li>
+          <li><a href="documents-messaging.html">Documents & Messaging</a></li>
+          <li><a href="payroll-performance.html">Payroll & Performance</a></li>
+          <li><a href="dashboard.html" aria-current="page">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
