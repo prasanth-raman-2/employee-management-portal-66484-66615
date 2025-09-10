@@ -1,1 +1,3 @@
-# employee-management-portal-66484-66615
+# Project Repository
+
+This is the initial README file for the project.
